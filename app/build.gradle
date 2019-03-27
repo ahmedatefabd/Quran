@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.qurankarem"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    //Butterknife
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //ShimmerRecyclerView
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
+
+    //AwesomeSplash
+    implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+
+    //flipprogressdialog
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
+    //sweetalert
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //RoomDataBas
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+
+}
