@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#9c7626"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight">
+    android:layout_height="wrap_content">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="القران الكريم"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColorHint="#fff"
+        android:visibility="gone"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -18,6 +28,7 @@
             android:src="@drawable/reading_icon" />
 
         <TextView
+            android:id="@+id/ayahName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="القران الكريم"
