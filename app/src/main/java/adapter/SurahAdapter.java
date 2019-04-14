@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.qurankarem.CategoryActivity;
 import com.example.qurankarem.R;
 import com.example.qurankarem.ayah.AyahActivity;

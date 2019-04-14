@@ -1,12 +1,9 @@
 package com.example.qurankarem;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.qurankarem.surah.HomeActivity;
 
