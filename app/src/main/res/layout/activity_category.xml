@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center"
-    android:background="#fff8e1"
+    android:background="#FFFCF7"
     tools:context=".CategoryActivity"
     android:layoutDirection="rtl"
     android:layout_width="match_parent"
@@ -15,6 +15,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
+    android:layout_marginTop="15dp"
     android:weightSum="4">
 
     <TableRow
@@ -35,6 +36,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
+                android:background="#D3BC14"
                 app:srcCompat="@drawable/quran5" />
 
             <TextView
@@ -45,12 +47,14 @@
                 android:gravity="center"
                 android:drawableRight="@drawable/right"
                 android:textColor="#000"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_shape"
                 android:textSize="18sp"
                 android:text="الرئيسية" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/reader"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -61,20 +65,24 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/quran5" />
+                app:srcCompat="@drawable/quran5"
+                android:background="#D3BC14"/>
 
             <TextView
                 android:layout_width="170dp"
                 android:layout_height="30dp"
-                android:textStyle="bold"
                 android:layout_gravity="center"
+                android:textStyle="bold"
                 android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:background="@drawable/button_shape"
                 android:gravity="center"
                 android:drawableLeft="@drawable/left"
-                android:background="@drawable/button_shape"
-                android:textColor="#000"
-                android:text="الاجزاء" />
+                android:text="التلاوة" />
         </LinearLayout>
+
+
 
     </TableRow>
 
@@ -95,6 +103,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
+                android:background="#D3BC14"
                 app:srcCompat="@drawable/quran5" />
 
             <TextView
@@ -107,6 +116,7 @@
                 android:background="@drawable/button_shape"
                 android:drawableRight="@drawable/right"
                 android:textSize="18sp"
+                android:layout_marginTop="10dp"
                 android:text="الاحزاب" />
         </LinearLayout>
 
@@ -121,19 +131,21 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
+                android:background="#D3BC14"
                 app:srcCompat="@drawable/quran5" />
 
             <TextView
                 android:layout_width="170dp"
                 android:layout_height="30dp"
-                android:layout_gravity="center"
                 android:textStyle="bold"
+                android:layout_gravity="center"
                 android:textSize="18sp"
-                android:textColor="#000"
-                android:background="@drawable/button_shape"
                 android:gravity="center"
                 android:drawableLeft="@drawable/left"
-                android:text="الايات" />
+                android:background="@drawable/button_shape"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:text="الاجزاء" />
         </LinearLayout>
 
     </TableRow>
@@ -156,6 +168,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
+                android:background="#D3BC14"
                 app:srcCompat="@drawable/quran5" />
 
             <TextView
@@ -165,6 +178,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="#000"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_shape"
                 android:gravity="center"
                 android:drawableRight="@drawable/right"
@@ -183,12 +197,14 @@
                 android:id="@+id/imageView47"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
+                android:background="#D3BC14"
                 android:layout_gravity="center_horizontal"
                 app:srcCompat="@drawable/quran5" />
 
             <TextView
                 android:id="@+id/textView4666"
                 android:layout_width="170dp"
+                android:layout_marginTop="10dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:gravity="center"

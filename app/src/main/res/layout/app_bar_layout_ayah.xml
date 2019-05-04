@@ -2,12 +2,12 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#9c7626"
+    android:background="#AD8000"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="القران الكريم"
@@ -25,7 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/reading_icon" />
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/reading_icon"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/ayahName"
@@ -37,12 +39,5 @@
             android:textStyle="bold"
             android:textColor="#fff" />
     </FrameLayout>
-
-    <TextView
-        android:id="@+id/nightReadingTextFive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="25sp" />
 
 </androidx.appcompat.widget.Toolbar>

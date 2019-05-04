@@ -5,7 +5,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,19 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.qurankarem.R;
 import com.example.qurankarem.surah.HomeActivity;
 import adapter.AyahAdapter;
-
 import model.Ayah;
 import model.Surah;
 import Api.modelDB.AyahDB;
 import util.NetworkChangeReceiver;
-
 import java.util.List;
-
 import static android.os.Build.VERSION_CODES.M;
 
 public class AyahActivity extends AppCompatActivity implements AyahView{
@@ -86,17 +81,14 @@ public class AyahActivity extends AppCompatActivity implements AyahView{
         } else {
             error();
         }
-
     }
 
     @Override
     public void recyclerOfflineRoom(List<AyahDB> ayahDBList) {
-
     }
 
     @Override
     public void LoadDataOfflineRoom() {
-
     }
 
     @Override
@@ -119,7 +111,6 @@ public class AyahActivity extends AppCompatActivity implements AyahView{
 
     @Override
     public void Local() {
-
     }
 
     @Override

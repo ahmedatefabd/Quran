@@ -16,4 +16,8 @@
     <color name="Black">#7F000000</color>
     <color name="notification_text">#000000</color>
     <color name="mainListGold">#fffde7</color>
+
+    <color name="seekbar_bg">#141414</color>
+    <color name="seekbar_progress">#a53130</color>
+    <color name="seekbar_sec_progress">#875e5e</color>
 </resources>

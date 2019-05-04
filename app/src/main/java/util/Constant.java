@@ -4,21 +4,10 @@ public interface Constant {
 
 
     interface Api {
-
-        String BASE_URL = "https://jsonplaceholder.typicode.com/posts";
+        String BASE_URL = "https://api.alquran.cloud/v1/";
+        String BASE_URL2= "https://mostafagad9090.000webhostapp.com/QuranService/";
     }
 
     interface DataBase{
-//        String DATA_BASE_NAME = "Storage.db";
-//        String TABLE_NAME = "posts_data";
-//
-//        String POST_ID = "id";
-//        String POST_TITLE = "title";
-//        String POST_BODY = "body";
-//
-//
-//        String POST_COLUM_ID = "id";
-//        String POST_COLUM_TITLE = "title";
-//        String POST_COLUM_BODY = "body";
     }
 }

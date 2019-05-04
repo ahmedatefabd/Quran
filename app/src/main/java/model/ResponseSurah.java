@@ -10,13 +10,14 @@ import java.util.List;
 
 public class ResponseSurah implements Parcelable {
 
-
     @SerializedName("code")
     @Expose
     private Integer code;
+
     @SerializedName("status")
     @Expose
     private String status;
+
     @SerializedName("data")
     @Expose
     private List<Surah> surahList = null;

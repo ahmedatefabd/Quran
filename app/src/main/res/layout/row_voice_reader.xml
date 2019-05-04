@@ -21,13 +21,14 @@
             android:src="@drawable/reading_icon" />
 
         <TextView
-            android:id="@+id/surah_arabic"
+            android:id="@+id/reader_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/right"
             android:drawableLeft="@drawable/left"
             android:text="القران الكريم"
             android:padding="8dp"
+            android:gravity="center"
             android:layout_gravity="center"
             android:textSize="24sp"
             android:textStyle="bold"

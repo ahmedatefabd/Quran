@@ -1,12 +1,13 @@
 package Api;
 public class ServicesConnection {
-    public static final String BASE_URL = "https://api.alquran.cloud/v1/";
     private static ApiInterface apiInterface = null;
+
     private ServicesConnection() {
     }
-    public static ApiInterface GetService() {
+
+    public static ApiInterface GetService(String BASE_URL) {
         if (apiInterface == null) {
-            apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface = ApiClient.getClient(BASE_URL).create(ApiInterface.class);
         }
         return apiInterface;
     }

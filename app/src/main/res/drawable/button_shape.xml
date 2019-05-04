@@ -12,9 +12,9 @@
     android:gradientRadius="100"
     android:centerX="35%"
     android:centerY="50%"
-    android:centerColor="#FFD255"
-    android:startColor="#FFD255"
-    android:endColor="#FFD255"
+    android:centerColor="#FFEB3B"
+    android:startColor="#FFEB3B"
+    android:endColor="#FFEB3B"
     android:type="radial"
     />
 <padding

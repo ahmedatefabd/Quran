@@ -1,13 +1,13 @@
-package com.example.qurankarem.surah;
-import AdaptersOfflin.SuraAdapterOfflin;
-import ModelDB.SuraDB;
+package com.example.qurankarem.readers;
+import adapter.ReaderAdapter;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.room.Room;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import model.Readers;
+import util.NetworkChangeReceiver;
+import util.Utils;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -15,46 +15,33 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.example.qurankarem.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase;
 import com.example.qurankarem.R;
-import adapter.SurahAdapter;
-import model.Surah;
-import util.NetworkChangeReceiver;
-import util.Utils;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import static android.os.Build.VERSION_CODES.M;
 
-public class HomeActivity extends AppCompatActivity implements HomeView {
+public class ReaderActivity extends AppCompatActivity implements ReadersView{
 
     public static Toolbar toolbar;
     public static ShimmerRecyclerView shimmerRecyclerView;
-    private HomePresenter homePresenter;
-    private SurahAdapter adapter;
+    private ReaderAdapter adapter;
+    private ReadersPresenter readersPresenter;
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
-    public static RoomDataBase roomDataBase;
-    public static List<SuraDB> surahDBList;
-    private SuraAdapterOfflin adapterOfflin;
+    private int body = 2 ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_surah);
 
+        setContentView(R.layout.activity_reader);
+        readersPresenter = new ReadersPresenterImp();
+        readersPresenter.setView(this);
         control();
         Local();
         controlToolbar();
-
-        if (Build.VERSION.SDK_INT >= M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
-        }
-        homePresenter = new HomePresenterImp();
-        homePresenter.setView(this);
         ShimmerRecycler();
-        roomDataBase = Room.databaseBuilder(getApplicationContext(), RoomDataBase.class, "postsdb").allowMainThreadQueries().build();
-        surahDBList = new ArrayList<>();
+
         if(NetworkChangeReceiver.isNetworkAvailable(this)) {
             LoadData();
         }else {
@@ -63,11 +50,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
-
     @Override
-    public void setSurahList(List<Surah> surahList) {
-        adapter = new SurahAdapter(this,  surahList);
-        if (surahList.size() > 0) {
+    public void setReaderList(List<Readers> readerList) {
+        adapter = new ReaderAdapter(this, readerList);
+        if (readerList.size() > 0) {
             shimmerRecyclerView.setAdapter(adapter);
         } else {
             error();
@@ -75,24 +61,13 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     }
 
     @Override
-    public void recyclerOfflineRoom(List<SuraDB> surahDBList) {
-        adapterOfflin = new SuraAdapterOfflin(this,  surahDBList);
-        if (surahDBList.size() > 0) {
-            shimmerRecyclerView.setAdapter(adapterOfflin);
-        } else {
-            error();
-        }
-    }
-
-    @Override
     public void LoadDataOfflineRoom() {
-        surahDBList = roomDataBase.oper().getAllSuras();
-        recyclerOfflineRoom(surahDBList);
+
     }
 
     @Override
     public void LoadData() {
-        homePresenter.getAllSurah();
+        readersPresenter.getAllReader(body);
     }
 
     @Override
@@ -116,7 +91,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     public void controlToolbar() {
-        toolbar = findViewById(R.id.surah_Toolbar);
+        toolbar = findViewById(R.id.reader_Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
     }
@@ -134,32 +109,15 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         }
     }
 
-    @Override
     public void ShimmerRecycler() {
-        shimmerRecyclerView = findViewById(R.id.recycler);
+        shimmerRecyclerView = findViewById(R.id.recyclerReader);
         shimmerRecyclerView.showShimmerAdapter();
         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         shimmerRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
     }
 
     @Override
     public void errorMessage() {
-        try {
-            new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                    .setTitleText("عفواًً")
-                    .setContentText("لا يــوجد أى اتصال بالانترنت")
-                    .setConfirmText("تم")
-                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
-                            sDialog.dismiss();
-                        }
-                    })
-                    .show();
-        } catch (Exception e) {
-            Toast.makeText(this, "لا يــوجد أى اتصال بالانترنت ..", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override

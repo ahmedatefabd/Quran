@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c4a360"
+    android:background="#DDC158"
     android:layout_gravity="center"
     tools:context=".splash.SplashActivity">
 
@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:text="القران الكريم"
             android:textSize="50dp"
-            android:textColor="#ffffff" />
+            android:textColor="#000" />
     </RelativeLayout>
 
 </LinearLayout>
