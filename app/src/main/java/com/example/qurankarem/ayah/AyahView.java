@@ -1,7 +1,8 @@
 package com.example.qurankarem.ayah;
 import model.Ayah;
-import model.Surah;
+import model.Surah_Aya;
 import Api.modelDB.AyahDB;
+
 import java.util.List;
 
 public interface AyahView {
@@ -11,7 +12,7 @@ public interface AyahView {
     void LoadDataOfflineRoom();
     void LoadData();
     void error();
-    void controlToolbar(Surah surah);
+    void controlToolbar(Surah_Aya surahAya);
     void Local();
     void ShimmerRecycler();
     void errorMessage();

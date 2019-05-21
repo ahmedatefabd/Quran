@@ -22,6 +22,5 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("GetQuran.php")
-//    Call<List<Readers>> getAllReaders(@Body int body);
     Call<List<Readers>> getAllReaders(@Field("reader_id") int body);
 }

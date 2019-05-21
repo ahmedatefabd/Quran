@@ -18,7 +18,7 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:padding="8dp"
-        android:background="#FFFCF7"
+        android:background="#ECECEC"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 

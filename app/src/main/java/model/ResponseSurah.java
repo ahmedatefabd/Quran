@@ -20,7 +20,7 @@ public class ResponseSurah implements Parcelable {
 
     @SerializedName("data")
     @Expose
-    private List<Surah> surahList = null;
+    private List<Surah_Aya> surahAyaList = null;
 
     protected ResponseSurah(Parcel in) {
         if (in.readByte() == 0) {
@@ -29,7 +29,7 @@ public class ResponseSurah implements Parcelable {
             code = in.readInt();
         }
         status = in.readString();
-        surahList = in.createTypedArrayList(Surah.CREATOR);
+        surahAyaList = in.createTypedArrayList(Surah_Aya.CREATOR);
     }
 
     public static final Creator<ResponseSurah> CREATOR = new Creator<ResponseSurah>() {
@@ -60,12 +60,12 @@ public class ResponseSurah implements Parcelable {
         this.status = status;
     }
 
-    public List<Surah> getSurahList() {
-        return surahList;
+    public List<Surah_Aya> getSurahAyaList() {
+        return surahAyaList;
     }
 
-    public void setSurahList(List<Surah> surahList) {
-        this.surahList = surahList;
+    public void setSurahAyaList(List<Surah_Aya> surahAyaList) {
+        this.surahAyaList = surahAyaList;
     }
 
     @Override
@@ -82,6 +82,6 @@ public class ResponseSurah implements Parcelable {
             dest.writeInt(code);
         }
         dest.writeString(status);
-        dest.writeTypedList(surahList);
+        dest.writeTypedList(surahAyaList);
     }
 }

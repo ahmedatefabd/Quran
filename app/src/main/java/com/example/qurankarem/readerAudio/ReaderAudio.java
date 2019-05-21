@@ -26,13 +26,6 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
     private final Handler handler = new Handler();
     public static Toolbar toolbar ;
     private TextView AudioName ;
-    private TextView SoraAudioName ;
-    private TextView ReaderAudioName ;
-    private TextView NumberAudioName ;
-    private TextView PageNumberAudioName ;
-    private TextView SoraTypeAudioName ;
-    private TextView AyahNumbersAudioName ;
-    private AppCompatButton Readers_Ayah ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,32 +33,9 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
 
         setContentView(R.layout.activity_reader_audio);
         AudioName = findViewById(R.id.audioName);
-        SoraAudioName = findViewById(R.id.soraAudioName);
-        ReaderAudioName = findViewById(R.id.readerAudioName);
-        NumberAudioName = findViewById(R.id.numberAudioName);
-        PageNumberAudioName = findViewById(R.id.pageNumberAudioName);
-        SoraTypeAudioName = findViewById(R.id.soraTypeAudioName);
-        AyahNumbersAudioName = findViewById(R.id.ayahNumbersAudioName);
-        Readers_Ayah = findViewById(R.id.readers_Ayah);
-
-        Readers_Ayah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ReaderAudio.this, HomeActivity.class));
-            }
-        });
-
         Bundle intent = getIntent().getExtras();
         Readers readers = intent.getParcelable("Audio");
         controlToolbar(readers);
-
-        SoraAudioName.setText(readers.getSora());
-        ReaderAudioName.setText(readers.getReaderName());
-        NumberAudioName.setText(String.valueOf(readers.getSoraNumber()));
-        PageNumberAudioName.setText(String.valueOf(readers.getPageNumber()));
-        SoraTypeAudioName.setText(readers.getSoraType());
-        AyahNumbersAudioName.setText(String.valueOf(readers.getAyatsNumber()));
-
         link =  readers.getLink().substring(0 , 4) + "s:" + readers.getLink().substring(5 , readers.getLink().length());
         initView();
     }
@@ -89,7 +59,7 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
     }
 
     private void primarySeekBarProgressUpdater() {
-        seekBarProgress.setProgress((int) (((float) mediaPlayer.getCurrentPosition() / mediaFileLengthInMilliseconds) * 100)); // This math construction give a percentage of "was playing"/"song length"
+        seekBarProgress.setProgress((int) (((float) mediaPlayer.getCurrentPosition() / mediaFileLengthInMilliseconds) * 100));
         if (mediaPlayer.isPlaying()) {
             Runnable notification = new Runnable() {
                 public void run() {
@@ -107,7 +77,7 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-        buttonPlayPause.setImageResource(R.drawable.play);
+        buttonPlayPause.setImageResource(R.drawable.btn_play);
     }
 
     @Override
@@ -125,10 +95,10 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
 
             if (!mediaPlayer.isPlaying()) {
                 mediaPlayer.start();
-                buttonPlayPause.setImageResource(R.drawable.pause);
+                buttonPlayPause.setImageResource(R.drawable.btn_pause);
             } else {
                 mediaPlayer.pause();
-                buttonPlayPause.setImageResource(R.drawable.play);
+                buttonPlayPause.setImageResource(R.drawable.btn_play);
             }
             primarySeekBarProgressUpdater();
         }
@@ -150,5 +120,35 @@ public class ReaderAudio extends AppCompatActivity implements View.OnClickListen
     public void onBackPressed() {
         mediaPlayer.stop();
         startActivity(new Intent(ReaderAudio.this , ReaderActivity.class));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mediaPlayer.start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            mediaPlayer.setDataSource(link);
+            mediaPlayer.prepare();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mediaFileLengthInMilliseconds = mediaPlayer.getDuration();
+        if (!mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+            buttonPlayPause.setImageResource(R.drawable.btn_pause);
+        }
+        primarySeekBarProgressUpdater();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
     }
 }

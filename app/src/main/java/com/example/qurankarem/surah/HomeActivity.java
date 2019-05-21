@@ -14,13 +14,17 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.example.qurankarem.CategoryActivity;
 import com.example.qurankarem.DataBase.RoomDB.RoomBD_Abstract.RoomDataBase;
 import com.example.qurankarem.R;
-import adapter.SurahAdapter;
-import model.Surah;
+
+import adapter.Surah_Aya_Adapter;
+import model.Surah_Aya;
 import util.NetworkChangeReceiver;
-import util.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -31,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public static Toolbar toolbar;
     public static ShimmerRecyclerView shimmerRecyclerView;
     private HomePresenter homePresenter;
-    private SurahAdapter adapter;
+    private Surah_Aya_Adapter adapter;
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
     public static RoomDataBase roomDataBase;
@@ -48,7 +52,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         controlToolbar();
 
         if (Build.VERSION.SDK_INT >= M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
         }
         homePresenter = new HomePresenterImp();
         homePresenter.setView(this);
@@ -65,9 +69,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
 
     @Override
-    public void setSurahList(List<Surah> surahList) {
-        adapter = new SurahAdapter(this,  surahList);
-        if (surahList.size() > 0) {
+    public void setSurahList(List<Surah_Aya> surahAyaList) {
+        adapter = new Surah_Aya_Adapter(this, surahAyaList);
+        if (surahAyaList.size() > 0) {
             shimmerRecyclerView.setAdapter(adapter);
         } else {
             error();
@@ -168,16 +172,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     public void onBackPressed() {
-        if(back_pressed + TIME_DELAY > System.currentTimeMillis()){
-            Intent exit = new Intent(Intent.ACTION_MAIN);
-            exit.addCategory(Intent.CATEGORY_HOME);
-            exit.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(exit);
-            finish();
-            System.exit(0);
-        }else {
-            Utils.makeToast(getApplicationContext(), "للخروج من التطبيق اضغط مرة أخرى ", 3000);
-        }
-        back_pressed = System.currentTimeMillis();
+        startActivity(new Intent(HomeActivity.this, CategoryActivity.class));
+        Animatoo.animateSlideRight(HomeActivity.this);
     }
 }

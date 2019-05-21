@@ -1,13 +1,13 @@
 package com.example.qurankarem.surah;
-import Api.ApiClient;
 import Api.ApiInterface;
 import Api.ServicesConnection;
 import ModelDB.SuraDB;
 import model.Data;
 import model.Readers;
 import model.ResponseSurah;
-import model.Surah;
+import model.Surah_Aya;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,30 +35,30 @@ public class HomePresenterImp implements HomePresenter, ApiInterface {
         QueryCall.enqueue(new Callback<ResponseSurah>() {
             @Override
             public void onResponse(Call<ResponseSurah> call, Response<ResponseSurah> response) {
-                List<Surah> surahs = response.body().getSurahList();
+                List<Surah_Aya> surahAyas = response.body().getSurahAyaList();
                 if (response.isSuccessful()) {
                     roomDataBase.oper().deleteSuras();
-                    for (int i = 0; i < surahs.size(); i++) {
+                    for (int i = 0; i < surahAyas.size(); i++) {
                         //SingleTon
                         SuraDB suraDB =
-                                SuraDB.getInstance(surahs.get(i).getNumber()
-                                        ,surahs.get(i).getName()
-                                        ,surahs.get(i).getEnglishName()
-                                        ,surahs.get(i).getEnglishNameTranslation()
-                                        ,surahs.get(i).getNumberOfAyahs()
-                                        ,surahs.get(i).getRevelationType());
+                                SuraDB.getInstance(surahAyas.get(i).getNumber()
+                                        , surahAyas.get(i).getName()
+                                        , surahAyas.get(i).getEnglishName()
+                                        , surahAyas.get(i).getEnglishNameTranslation()
+                                        , surahAyas.get(i).getNumberOfAyahs()
+                                        , surahAyas.get(i).getRevelationType());
 
-                        suraDB.setNumber(surahs.get(i).getNumber());
-                        suraDB.setName(surahs.get(i).getName());
-                        suraDB.setEnglishName(surahs.get(i).getEnglishName());
-                        suraDB.setEnglishNameTranslation(surahs.get(i).getEnglishNameTranslation());
-                        suraDB.setNumberOfAyahs(surahs.get(i).getNumberOfAyahs());
-                        suraDB.setRevelationType(surahs.get(i).getRevelationType());
+                        suraDB.setNumber(surahAyas.get(i).getNumber());
+                        suraDB.setName(surahAyas.get(i).getName());
+                        suraDB.setEnglishName(surahAyas.get(i).getEnglishName());
+                        suraDB.setEnglishNameTranslation(surahAyas.get(i).getEnglishNameTranslation());
+                        suraDB.setNumberOfAyahs(surahAyas.get(i).getNumberOfAyahs());
+                        suraDB.setRevelationType(surahAyas.get(i).getRevelationType());
 
                         roomDataBase.oper().addSuras(suraDB);
                     }
                    HomeActivity.shimmerRecyclerView.hideShimmerAdapter();
-                   homeView.setSurahList(surahs);
+                   homeView.setSurahList(surahAyas);
                 }
             }
             @Override
@@ -78,10 +78,10 @@ public class HomePresenterImp implements HomePresenter, ApiInterface {
 //            @Override
 //            public void onResponse(Call<ResponseSurah> call, Response<ResponseSurah> response) {
 //                try {
-//                    List<Surah> surahs = response.body().getSurahList();
+//                    List<Surah_Aya> surahs = response.body().getSurahAyaList();
 //                    if (response.isSuccessful()) {
 //                        HomeActivity.shimmerRecyclerView.hideShimmerAdapter();
-//                        homeView.setSurahList(surahs);
+//                        homeView.setSurahAyaList(surahs);
 //                    }
 //
 //                }catch (Exception e){

@@ -70,4 +70,8 @@ dependencies {
     //FastAndroidNetwork
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.amitshekhar.android:jackson-android-networking:1.0.2'
+
+    implementation 'androidx.core:core:1.0.0-beta01'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }

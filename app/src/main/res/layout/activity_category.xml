@@ -1,221 +1,492 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center"
     android:background="#FFFCF7"
     tools:context=".CategoryActivity"
-    android:layoutDirection="rtl"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_marginTop="15dp"
-    android:weightSum="4">
-
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layoutDirection="rtl"
         >
 
-        <LinearLayout
-            android:id="@+id/homeAct"
-            android:layout_width="0dp"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_marginTop="15dp"
+            android:weightSum="4">
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:background="#D3BC14"
-                app:srcCompat="@drawable/quran5" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:id="@+id/quranFull"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:drawableRight="@drawable/right"
-                android:textColor="#000"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_shape"
-                android:textSize="18sp"
-                android:text="الرئيسية" />
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
 
-        <LinearLayout
-            android:id="@+id/reader"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/quran5"
-                android:background="#D3BC14"/>
-
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="10dp"
-                android:textColor="#000"
-                android:background="@drawable/button_shape"
-                android:gravity="center"
-                android:drawableLeft="@drawable/left"
-                android:text="التلاوة" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                        android:text="القرأن كاملاً" />
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:id="@+id/reader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-    </TableRow>
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5"
+                        android:background="#6CC768"/>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableLeft="@drawable/left"
+                        android:text="التلاوة" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:background="#D3BC14"
-                app:srcCompat="@drawable/quran5" />
 
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:gravity="center"
-                android:background="@drawable/button_shape"
-                android:drawableRight="@drawable/right"
-                android:textSize="18sp"
-                android:layout_marginTop="10dp"
-                android:text="الاحزاب" />
-        </LinearLayout>
+            </TableRow>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:background="#D3BC14"
-                app:srcCompat="@drawable/quran5" />
+                <LinearLayout
+                    android:id="@+id/homeAct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:drawableLeft="@drawable/left"
-                android:background="@drawable/button_shape"
-                android:textColor="#000"
-                android:layout_marginTop="10dp"
-                android:text="الاجزاء" />
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
 
-    </TableRow>
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:textSize="18sp"
+                        android:text="أيات القرأن" />
+                </LinearLayout>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView44445"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:background="#D3BC14"
-                app:srcCompat="@drawable/quran5" />
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
 
-            <TextView
-                android:id="@+id/textView444"
-                android:layout_width="170dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_shape"
-                android:gravity="center"
-                android:drawableRight="@drawable/right"
-                android:textSize="18sp"
-                android:text="ايات الساجده" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:drawableLeft="@drawable/left"
+                        android:background="@drawable/button_shapegreen"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:text="الاجزاء" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/imageView47"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="#D3BC14"
-                android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/quran5" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
 
-            <TextView
-                android:id="@+id/textView4666"
-                android:layout_width="170dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/button_shape"
-                android:drawableLeft="@drawable/left"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#000"
-                android:text="أسماء الله الحسنى" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-    </TableRow>
-</TableLayout>
-</LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView44445"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:id="@+id/textView444"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:text="ايات الساجده" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView47"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="#6CC768"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:id="@+id/textView4666"
+                        android:layout_width="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableLeft="@drawable/left"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="أسماء الله الحسنى" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:text="ايات الساجده" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="#6CC768"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableLeft="@drawable/left"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="أسماء الله الحسنى" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:text="ايات الساجده" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="#6CC768"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableLeft="@drawable/left"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="أسماء الله الحسنى" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:text="ايات الساجده" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="#6CC768"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableLeft="@drawable/left"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="أسماء الله الحسنى" />
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#6CC768"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_shapegreen"
+                        android:gravity="center"
+                        android:drawableRight="@drawable/right"
+                        android:textSize="18sp"
+                        android:text="ايات الساجده" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="#6CC768"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/quran5" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/button_shapegreen"
+                        android:drawableLeft="@drawable/left"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000"
+                        android:text="أسماء الله الحسنى" />
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+
+</ScrollView>

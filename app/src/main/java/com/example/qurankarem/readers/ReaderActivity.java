@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import model.Readers;
 import util.NetworkChangeReceiver;
-import util.Utils;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.example.qurankarem.CategoryActivity;
 import com.example.qurankarem.R;
 import java.util.List;
 import java.util.Locale;
@@ -27,7 +28,7 @@ public class ReaderActivity extends AppCompatActivity implements ReadersView{
     private ReadersPresenter readersPresenter;
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
-    private int body = 2 ;
+    public static int body ;
 
 
     @Override
@@ -126,16 +127,7 @@ public class ReaderActivity extends AppCompatActivity implements ReadersView{
 
     @Override
     public void onBackPressed() {
-        if(back_pressed + TIME_DELAY > System.currentTimeMillis()){
-            Intent exit = new Intent(Intent.ACTION_MAIN);
-            exit.addCategory(Intent.CATEGORY_HOME);
-            exit.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(exit);
-            finish();
-            System.exit(0);
-        }else {
-            Utils.makeToast(getApplicationContext(), "للخروج من التطبيق اضغط مرة أخرى ", 3000);
-        }
-        back_pressed = System.currentTimeMillis();
+        startActivity(new Intent(ReaderActivity.this, CategoryActivity.class));
+        Animatoo.animateSlideLeft(ReaderActivity.this);
     }
 }

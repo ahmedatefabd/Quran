@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorListBackground"
+tools:context=".details.DetailsActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/surah_Toolbar"
+        layout="@layout/app_bar_layout_surah"
+        />
+
+    <TextView
+        android:id="@+id/tvVerse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/pdmssaleemquranfont"
+        android:text="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+        android:textColor="@android:color/black"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:textIsSelectable="true"
+        android:paddingRight="20dp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.9dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_gravity="center"
+        android:background="#000"
+        />
+
+    <TextView
+        android:id="@+id/textQuran"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:fontFamily="@font/pdmssaleemquranfont"
+        android:textColor="@android:color/black"
+        android:textIsSelectable="true"
+        android:padding="15dp"/>
+
+</LinearLayout>
+
+</ScrollView>

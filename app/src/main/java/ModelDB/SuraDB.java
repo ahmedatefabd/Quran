@@ -2,7 +2,7 @@ package ModelDB;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import model.Surah;
+import model.Surah_Aya;
 
 @Entity(tableName = "Suras")
 public class SuraDB {
@@ -37,7 +37,7 @@ public class SuraDB {
 
     public static SuraDB getInstance(Integer number, String name, String englishName, String englishNameTranslation, Integer numberOfAyahs, String revelationType) {
         if (instance == null) {
-            synchronized (Surah.class) {
+            synchronized (Surah_Aya.class) {
                 if (instance == null) {
                     System.out.println("getInstance(): First time getInstance was invoked!");
                     instance = new SuraDB(number, name, englishName, englishNameTranslation, numberOfAyahs, revelationType);

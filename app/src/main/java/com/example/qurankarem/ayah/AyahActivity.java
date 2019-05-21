@@ -19,7 +19,7 @@ import com.example.qurankarem.R;
 import com.example.qurankarem.surah.HomeActivity;
 import adapter.AyahAdapter;
 import model.Ayah;
-import model.Surah;
+import model.Surah_Aya;
 import Api.modelDB.AyahDB;
 import util.NetworkChangeReceiver;
 import java.util.List;
@@ -47,18 +47,18 @@ public class AyahActivity extends AppCompatActivity implements AyahView{
         editor = sharedPreferences.edit();
 
         Bundle intent = getIntent().getExtras();
-        Surah surah = intent.getParcelable("surah");
-        int number = surah.getNumber();
+        Surah_Aya surahAya = intent.getParcelable("surahAya");
+        int number = surahAya.getNumber();
 
         editor.putInt("Number", number);
         editor.apply();
 
         control();
         Local();
-        controlToolbar(surah);
+        controlToolbar(surahAya);
 
         if (Build.VERSION.SDK_INT >= M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.booking));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
         }
         ayahPresenter = new AyahPresenterImp();
         ayahPresenter.setView(this);
@@ -101,10 +101,10 @@ public class AyahActivity extends AppCompatActivity implements AyahView{
     }
 
     @Override
-    public void controlToolbar(Surah surah) {
+    public void controlToolbar(Surah_Aya surahAya) {
         toolbar = findViewById(R.id.ayah_Toolbar);
         AyahName = findViewById(R.id.ayahName);
-        AyahName.setText(surah.getName());
+        AyahName.setText(surahAya.getName());
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
     }

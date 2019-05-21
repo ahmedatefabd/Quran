@@ -1,74 +1,55 @@
 package adapter;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import com.example.qurankarem.CategoryActivity;
 import com.example.qurankarem.R;
-import com.example.qurankarem.ayah.AyahActivity;
-import com.example.qurankarem.surah.HomeActivity;
-
-import model.Surah;
 import java.util.List;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import model.Surah;
 
-public class SurahAdapter extends RecyclerView.Adapter<SurahAdapter.SurahHolder> {
-    private Context mContext;
-    private List<Surah> surahList;
+public class SurahAdapter extends ArrayAdapter<Surah> {
+    private List<Surah> list;
+    private Context context;
 
-    public SurahAdapter(Context mContext, List<Surah> surahList1) {
-        this.mContext = mContext;
-        this.surahList = surahList1;
+    public static class ViewHolder{
+        TextView txtName;
     }
-
+    public SurahAdapter(List<Surah> list, Context context) {
+        super(context, R.layout.item_surah_list,list);
+        this.list = list;
+        this.context = context;
+    }
     @Override
-    public SurahHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View row = LayoutInflater.from(mContext).inflate(R.layout.row_surah, parent, false);
-        SurahHolder holder = new SurahHolder(row);
-        return holder;
+    public int getCount() {
+        return list.size();
     }
 
+    @NonNull
     @Override
-    public void onBindViewHolder(SurahHolder holder, int position) {
-
-        final Surah surah = surahList.get(position);
-
-//        holder.surah_Number.setText(String.valueOf(surah.getNumber()));
-//        holder.surah_english.setText(surah.getEnglishName());
-        holder.surah_arabic.setText(surah.getName());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, AyahActivity.class);
-                intent.putExtra("surah", surah);
-//                Animatoo.animateZoom(mContext);
-                mContext.startActivity(intent);
-
-//                mContext.startActivity(new Intent(mContext, HomeActivity.class));
-
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return surahList.size();
-    }
-
-    public class SurahHolder extends RecyclerView.ViewHolder {
-        public TextView surah_Number;
-        public TextView surah_english;
-        public TextView surah_arabic;
-
-        public SurahHolder(View view) {
-            super(view);
-//            this.surah_Number = view.findViewById(R.id.surah_Number);
-//            this.surah_english = view.findViewById(R.id.surah_english);
-            this.surah_arabic = view.findViewById(R.id.surah_arabic);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        Surah model =getItem(position);
+        SurahAdapter.ViewHolder viewHolder;
+        View v;
+        if (convertView == null){
+            viewHolder = new SurahAdapter.ViewHolder();
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_surah_list,parent,false);
+            viewHolder.txtName = convertView.findViewById(R.id.tvSurahName);
+//            Typeface customTypeFace = Typeface.createFromAsset(context.getAssets(),"font/abel.ttf");
+//            viewHolder.txtName.setTypeface(customTypeFace);
+            v = convertView;
+            convertView.setTag(viewHolder);
         }
+        else{
+            viewHolder = (SurahAdapter.ViewHolder) convertView.getTag();
+            v = convertView;
+        }
+        viewHolder.txtName.setText(model.getSurah_name());
+        return v;
     }
+
 }

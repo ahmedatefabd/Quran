@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ECECEC"
     tools:context=".readers.ReaderActivity">
 
     <include
@@ -18,7 +19,7 @@
         android:id="@+id/recyclerReader"
         android:layout_width="match_parent"
         android:padding="8dp"
-        android:background="#FFFCF7"
+        android:background="#ECECEC"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
 

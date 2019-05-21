@@ -13,11 +13,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.qurankarem.CategoryActivity;
 import com.example.qurankarem.R;
-import com.example.qurankarem.surah.HomeActivity;
-
 import java.util.Locale;
 
 public class SplashActivity extends AppCompatActivity {
@@ -75,7 +72,6 @@ public class SplashActivity extends AppCompatActivity {
                         }
                     }
                 }, 2000);
-
             }
             @Override
             public void onAnimationRepeat(Animation animation) {

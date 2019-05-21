@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#AD8000"
+    android:background="#007C52"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight">
 
@@ -34,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:visibility="gone"/>
 
 </androidx.appcompat.widget.Toolbar>

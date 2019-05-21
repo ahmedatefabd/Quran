@@ -8,7 +8,7 @@ import com.example.qurankarem.R;
 import java.util.List;
 import ModelDB.SuraDB;
 import androidx.recyclerview.widget.RecyclerView;
-import model.Surah;
+import model.Surah_Aya;
 
 public class SuraAdapterOfflin extends RecyclerView.Adapter<SuraAdapterOfflin.SuraOfflinHolder>{
 
@@ -25,7 +25,7 @@ public class SuraAdapterOfflin extends RecyclerView.Adapter<SuraAdapterOfflin.Su
 
     public static SuraAdapterOfflin getInstance(Context context, List<SuraDB> suraDBList) {
         if (instance == null) {
-            synchronized (Surah.class) {
+            synchronized (Surah_Aya.class) {
                 if (instance == null) {
                     System.out.println("getInstance(): First time getInstance was invoked!");
                     instance = new SuraAdapterOfflin(context, suraDBList);
