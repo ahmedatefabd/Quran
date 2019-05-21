@@ -15,7 +15,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.example.qurankarem.R;
 import com.example.qurankarem.readers.ReaderActivity;
-import com.example.qurankarem.surah.HomeActivity;
 
 public class ReaderAudio extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnBufferingUpdateListener{
     private ImageButton buttonPlayPause;
